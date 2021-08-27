@@ -66,10 +66,11 @@ export default {
       target: env[process.env.MODE].ENV_API,
       secure: false,
       changeOrigin: true,
-      // pathRewrite: {
-      //   '^/api/blog/': '/api/plumemo-service/',
-      //   changeOrigin: true
-      // }
+      //上线时需注释掉pathRewrite，已由nginx代理，平时开发测试时打开
+      pathRewrite: {
+        '^/api/blog/': '/api/plumemo-service/',
+        changeOrigin: true
+      }
     },
   },
   // Build Configuration: https://go.nuxtjs.dev/config-build
